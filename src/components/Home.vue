@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="clickBtn">点击</button>
+    <button @click="clickBtn({name: 'lj'})">点击</button>
   </div>
 </template>
 <script lang="ts">
@@ -24,7 +24,7 @@ export default class Home extends Vue {
   /**
    * clickBtn
    */
-  public clickBtn() {
+  public clickBtn(param: {name: string, age: number}) {
     let tuple: [string, number];
     tuple = ['23', 11];
     console.log(tuple[3] = '123');
@@ -34,6 +34,7 @@ export default class Home extends Vue {
     console.log(enumVal);
     const enumKey: string = Color[4];
     console.log(enumKey);
+    console.log(param.name);
   }
 }
 </script>
