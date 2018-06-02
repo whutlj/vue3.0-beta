@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="main">
+    main
     <button @click="clickBtn({name: 'lj'})">点击</button>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import { Person, Animal} from '@/assets/js/allClass';
 @Component({
   name: 'Home'
 })
@@ -35,6 +37,16 @@ export default class Home extends Vue {
     const enumKey: string = Color[4];
     console.log(enumKey);
     console.log(param.name);
+    console.log(new Person('李杰', 23).greeting());
+    console.log(new Animal('dog').greeting());
+    console.log(this.$router.push({name:'hello'}))
   }
 }
 </script>
+<style lang="scss" scoped>
+$mainColor: #ff6200;
+.main{
+  color: $mainColor;
+}
+</style>
+
