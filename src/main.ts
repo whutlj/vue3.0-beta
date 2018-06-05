@@ -6,11 +6,12 @@ import 'mint-ui/lib/style.css';
 import '@/assets/js/index.ts';
 Vue.config.productionTip = false;
 
-import { Button } from 'mint-ui';
+import { Button, Popup } from 'mint-ui';
 
 Vue.component(Button.name, Button);
+Vue.component(Popup.name, Popup);
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App)
 }).$mount('#app');
