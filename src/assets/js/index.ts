@@ -1,4 +1,4 @@
-export default (function(designWidth, maxWidth) {
+(function(designWidth, maxWidth) {
   // let tid: any;
   // function refreshRem(): void {
   //   const scale = 1 / devicePixelRatio;
@@ -39,7 +39,7 @@ export default (function(designWidth, maxWidth) {
     if (width > maxWidth) {
       width = maxWidth;
     }
-    const rem = width * 100 / designWidth;
+    const rem = (width * 100) / designWidth;
     remStyle.innerHTML = 'html{font-size:' + rem + 'px !important;}';
   }
 

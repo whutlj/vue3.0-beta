@@ -5,7 +5,6 @@ import axios, {
   AxiosResponse,
   CancelToken
 } from 'axios';
-import index from '@/assets/js';
 interface fetchData {
   method: string;
   url: string;
@@ -54,12 +53,14 @@ const createApi = (options = {}): AxiosInstance => {
     return config;
   });
 
-  instance.interceptors.response.use((res): AxiosResponse => {
-    if (res.config.url) {
-      removePending(res.config.url);
+  instance.interceptors.response.use(
+    (res): AxiosResponse => {
+      if (res.config.url) {
+        removePending(res.config.url);
+      }
+      return res;
     }
-    return res;
-  });
+  );
   return instance;
 };
 

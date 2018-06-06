@@ -1,13 +1,13 @@
 <template>
-  <div class="main">
+  <div :class="$style.main">
     <mt-button @click="clickBtn({name: 'lj'})">点击</mt-button>
     <mt-button @click="tsBtn">TS</mt-button>
     <mt-popup v-model="visible"
-      class="popup"
+      :class="$style.popup"
      position="bottom">
       这里是底部弹框
      </mt-popup>
-     <div class="test-rem"></div>
+     <div :class="$style['test-rem']"></div>
   </div>
 </template>
 <script lang="ts">
@@ -204,7 +204,7 @@ export default class Home extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" module>
 $mainColor: #ff6200;
 .main{
   display: flex;
