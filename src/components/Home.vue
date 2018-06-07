@@ -160,7 +160,7 @@ export default class Home extends Vue {
     console.log(new Person('李杰', 23).greeting());
     console.log(new Animal('dog').greeting());
     console.log(this.$router.push({name:'hello'}))
-    movieApi.get('/in_theaters').then(res => {
+    movieApi.get('/in_theaters', {params: {city: '成都'}}).then(res => {
       console.log(res.data);
     })
     console.log(argsFun('one', 'two', '222', '333', '555'));

@@ -44,6 +44,7 @@ const createApi = (options = {}): AxiosInstance => {
 
   instance.interceptors.request.use((config) => {
     if (config.url) {
+      console.log(config);
       const url = config.url;
       removePending(url);
       config.cancelToken = new cancelToken((cancel) => {

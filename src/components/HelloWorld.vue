@@ -1,7 +1,7 @@
 <template>
-  <div class="hello">
+  <div :class="$style.hello">
     hello
-    <div class="hello-cmp">
+    <div :class="$style['hello-cmp']">
       {{computedProp}}
     </div>
     <div>

@@ -5,6 +5,13 @@ import router from './router';
 import store from './store';
 import 'mint-ui/lib/style.css';
 import '@/assets/js/index.ts';
+
+import ECharts from 'vue-echarts/components/ECharts.vue';
+// import ECharts modules manually to reduce bundle size
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/component/tooltip';
+
+Vue.component('chart', ECharts);
 Vue.config.productionTip = false;
 import { Button, Popup } from 'mint-ui';
 
