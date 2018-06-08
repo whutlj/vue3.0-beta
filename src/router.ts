@@ -3,7 +3,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 const Home = () => import('@/components/Home.vue');
 const HelloWorld = () => import('@/components/HelloWorld.vue');
-
+const EchartsDemo = () => import('@/components/EchartsDemo.vue');
 export default new Router({
   mode: 'history',
   routes: [
@@ -16,6 +16,11 @@ export default new Router({
       path: '/hello',
       name: 'hello',
       component: HelloWorld
+    },
+    {
+      path: '/charts',
+      name: 'EchartsDemo',
+      component: EchartsDemo
     }
   ]
 });

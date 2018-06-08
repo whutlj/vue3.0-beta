@@ -5,6 +5,7 @@ import axios, {
   AxiosResponse,
   CancelToken
 } from 'axios';
+import qs from 'qs';
 interface fetchData {
   method: string;
   url: string;
@@ -16,23 +17,24 @@ interface Ipending {
   [index: string]: any;
 }
 
-const fetchGet = async (url: string, params: any = {}) => {
-  await axios
-    .get(url, {
-      params: params
-    })
-    .then((res) => res.data);
-  // return data;
-};
+interface CreateConfig extends AxiosRequestConfig {
+  isFormData?: boolean;
+}
 
 const cancelToken = axios.CancelToken;
 const pending: Ipending = {};
-const createApi = (options = {}): AxiosInstance => {
+const createApi = (options: CreateConfig = {}): AxiosInstance => {
+  const formData =
+    typeof options.isFormData === 'boolean' ? options.isFormData : true;
   const conf = Object.assign(
     {},
     {
       transformRequest: [
-        function(data: any) {
+        (data: any) => {
+          // return data;
+          if (formData) {
+            return qs.stringify(data);
+          }
           return data;
         }
       ]
@@ -77,4 +79,4 @@ const movieApi = createApi({ baseURL: '/v2/movie/' });
 const cityApi = createApi({ baseURL: '/v2/loc/' });
 const eventApi = createApi({ baseURL: '/v2/event/' });
 const bookApi = createApi({ baseURL: '/v2/book/' });
-export { fetchGet, api, cityApi, movieApi, bookApi, eventApi };
+export { api, cityApi, movieApi, bookApi, eventApi };

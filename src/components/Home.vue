@@ -1,6 +1,10 @@
 <template>
   <div :class="$style.main">
     <mt-button @click="clickBtn({name: 'lj'})">点击</mt-button>
+    <mt-button @click="echartShow">图表展示</mt-button>
+    <div>
+      {{in_theaters}}
+    </div>
     <mt-button @click="tsBtn">TS</mt-button>
     <mt-popup v-model="visible"
       :class="$style.popup"
@@ -14,7 +18,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Person, Animal} from '@/assets/js/allClass';
-import { movieApi } from '@/assets/js/fetch';
+import  dbApi from '@/assets/js/api';
 import { constants } from 'http2';
 import { relative } from 'path';
 function argsFun(param: string, paramOne: string, ...stopParam:string[]): string {
@@ -134,6 +138,8 @@ export default class Home extends Vue {
   public name = 'lj';
   public visible = false;
   public pprop = 'p';
+  public in_theaters = '';
+ 
   public mounted() {
     this.pmethod();
     console.log(myIdentity('1dd1'))
@@ -160,8 +166,8 @@ export default class Home extends Vue {
     console.log(new Person('李杰', 23).greeting());
     console.log(new Animal('dog').greeting());
     console.log(this.$router.push({name:'hello'}))
-    movieApi.get('/in_theaters', {params: {city: '成都'}}).then(res => {
-      console.log(res.data);
+    dbApi.movie.inTheaters().then(res => {
+      this.in_theaters = res;
     })
     console.log(argsFun('one', 'two', '222', '333', '555'));
 
@@ -201,6 +207,12 @@ export default class Home extends Vue {
     console.log(sym2)
     let cInstance = new C();
     // console.log(cInstance.getName());
+  }
+  /**
+   * 跳转echarts demo
+   */
+  echartShow() {
+    this.$router.push({name: 'EchartsDemo'})
   }
 }
 </script>
