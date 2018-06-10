@@ -1,1 +1,23 @@
 $mainColor: #ff6200;
+.the-main{text-align: center;}
+.box{cursor: pointer;}
+.box:hover + .scroll-wrapper {
+  transform: translateX(200px);
+}
+.scroll-wrapper{
+  width: 200px;
+  height: 128px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #cccccc;
+  color: #ff6200;
+  transform: translateX(0);
+  font-size: 16px;
+  animation: all .5s ease;
+  
+}
+.scroll-item{
+  height: 32px;
+  line-height: 32px;
+}
+.scroll-wrapper::-webkit-scrollbar{width: 0;}
