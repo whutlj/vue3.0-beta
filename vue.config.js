@@ -1,3 +1,9 @@
+const merge = require('webpack-merge');
+const path = require('path');
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
+}
+
 module.exports = {
   devServer: {
     port: 8888,
@@ -17,6 +23,14 @@ module.exports = {
         }
       }
     }
+  },
+  chainWebpack: (config) => {
+    config.module
+      .rule('compile')
+      .test(/\.js$/)
+      .include.add(resolve('node_modules/vue-echarts'))
+      .add(resolve('node_modules/resize-detector'))
+      .end();
   },
   lintOnSave: false
 };
