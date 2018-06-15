@@ -1,0 +1,16 @@
+@import './base.scss';
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+
+// 覆盖mint-ui样式
+.mint-header{
+  background: $mainColor;
+}
+.mint-navbar .mint-tab-item.is-selected{
+  color: $hoverColor;
+}

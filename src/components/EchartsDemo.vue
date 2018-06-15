@@ -12,7 +12,6 @@
       <div :class="$style['scroll-item']" v-for="(item, index) in arr" :key="index">公告{{index}}</div>
     </div>
     <div>
-      <chart :class="$style['charts-box']" :options="polar"></chart>
     </div>
   </div>
 </template>

@@ -5,13 +5,25 @@ import router from './router';
 import store from './store';
 import 'mint-ui/lib/style.css';
 import '@/assets/js/index.ts';
-import '@/assets/css/base.scss';
+import '@/assets/css/index.scss';
+import 'animate.css';
+import VueLazyLoad from 'vue-lazyload';
+// import { Button, Popup, Navbar, TabItem, Header } from 'mint-ui';
+import Mint from 'mint-ui';
 
 Vue.config.productionTip = false;
-import { Button, Popup } from 'mint-ui';
-
-Vue.component(Button.name, Button);
-Vue.component(Popup.name, Popup);
+// Vue.component(Button.name, Button);
+// Vue.component(Popup.name, Popup);
+// Vue.component(Navbar.name, Navbar);
+// Vue.component(TabItem.name, TabItem);
+// Vue.component(Header.name, Header);
+Vue.use(Mint);
+Vue.use(VueLazyLoad, {
+  preLoad: 1,
+  error: '@/assets/img/loayError.png',
+  loading: '@/assets/img/loayLoading.png',
+  attempt: 1
+});
 new Vue({
   router,
   store,

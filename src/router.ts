@@ -4,13 +4,14 @@ Vue.use(Router);
 const Home = () => import('@/components/Home.vue');
 const HelloWorld = () => import('@/components/HelloWorld.vue');
 const EchartsDemo = () => import('@/components/EchartsDemo.vue');
+const DbHome = () => import('@/components/DbHome.vue');
 export default new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'lj_home',
-      component: Home
+      name: 'DbHome',
+      component: DbHome
     },
     {
       path: '/hello',
