@@ -13,6 +13,7 @@
     </div>
     <div>
     </div>
+    <router-link :to="{name: 'DbHome'}">主页</router-link>
   </div>
 </template>
 <script lang="ts">
